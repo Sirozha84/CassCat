@@ -41,6 +41,21 @@ namespace CassCat
                 serializer.Serialize(writer, library);
         }
 
+        int Find(Cassete cas, string str)
+        {
+            string[] names = str.Split(',');
+            int s = 0;
+            foreach (string name in names)
+            {
+                string nm = name;
+                while (nm.Length > 0 & name[0] == ' ') nm = nm.Substring(1, nm.Length - 1);
+                while (nm.Length > 0 & name[nm.Length-1] == ' ') nm = nm.Substring(0, nm.Length-1);
+
+                if (nm.Length < 1) break;
+            }
+            return 0;
+        }
+
         void Refresh()
         {
             library.Sort((o1, o2) => o1.name.CompareTo(o2.name));
@@ -49,10 +64,14 @@ namespace CassCat
             int n = 1;
             foreach (Cassete cas in library)
             {
-                ListViewItem item = new ListViewItem(n++.ToString());
-                item.SubItems.Add(cas.name);
-                item.Tag = cas;
-                listViewCassetes.Items.Add(item);
+                int p = textBoxSearch.Text == "" ? 101 : Find(cas, textBoxSearch.Text);
+                if (p > 0)
+                {
+                    ListViewItem item = new ListViewItem(n++.ToString());
+                    item.SubItems.Add(cas.name);
+                    item.Tag = cas;
+                    listViewCassetes.Items.Add(item);
+                }
             }
             listViewCassetes.EndUpdate();
         }
@@ -161,6 +180,11 @@ namespace CassCat
             buttonSave.Enabled = true;
             buttonCancel.Enabled = true;
         }
+        private void textBoxSearch_TextChanged(object sender, EventArgs e)
+        {
+            Refresh();
+        }
+
         #region Меню
         private void ВыходToolStripMenuItem_Click(object sender, EventArgs e)
         {
