@@ -54,11 +54,11 @@
             this.textBoxYear = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.dataGridViewA = new System.Windows.Forms.DataGridView();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.удалитьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.dataGridViewB = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewA)).BeginInit();
             this.contextMenuStrip1.SuspendLayout();
@@ -106,8 +106,10 @@
             // выходToolStripMenuItem
             // 
             this.выходToolStripMenuItem.Name = "выходToolStripMenuItem";
-            this.выходToolStripMenuItem.Size = new System.Drawing.Size(109, 22);
+            this.выходToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.F4)));
+            this.выходToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.выходToolStripMenuItem.Text = "Выход";
+            this.выходToolStripMenuItem.Click += new System.EventHandler(this.ВыходToolStripMenuItem_Click);
             // 
             // справкаToolStripMenuItem
             // 
@@ -120,8 +122,9 @@
             // оПрограммеToolStripMenuItem
             // 
             this.оПрограммеToolStripMenuItem.Name = "оПрограммеToolStripMenuItem";
-            this.оПрограммеToolStripMenuItem.Size = new System.Drawing.Size(149, 22);
+            this.оПрограммеToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.оПрограммеToolStripMenuItem.Text = "О программе";
+            this.оПрограммеToolStripMenuItem.Click += new System.EventHandler(this.ОПрограммеToolStripMenuItem_Click);
             // 
             // listViewCassetes
             // 
@@ -141,6 +144,7 @@
             this.listViewCassetes.TabIndex = 2;
             this.listViewCassetes.UseCompatibleStateImageBehavior = false;
             this.listViewCassetes.View = System.Windows.Forms.View.Details;
+            this.listViewCassetes.SelectedIndexChanged += new System.EventHandler(this.ListViewCassetes_SelectedIndexChanged);
             // 
             // columnHeader1
             // 
@@ -315,6 +319,12 @@
             this.dataGridViewA.Size = new System.Drawing.Size(156, 212);
             this.dataGridViewA.TabIndex = 7;
             // 
+            // Column1
+            // 
+            this.Column1.HeaderText = "Программа";
+            this.Column1.Name = "Column1";
+            this.Column1.Width = 156;
+            // 
             // contextMenuStrip1
             // 
             this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -353,12 +363,6 @@
             this.dataGridViewTextBoxColumn1.HeaderText = "Программа";
             this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
             this.dataGridViewTextBoxColumn1.Width = 156;
-            // 
-            // Column1
-            // 
-            this.Column1.HeaderText = "Программа";
-            this.Column1.Name = "Column1";
-            this.Column1.Width = 156;
             // 
             // FormMain
             // 

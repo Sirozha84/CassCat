@@ -71,9 +71,9 @@ namespace CassCat
             textBoxCity.Enabled = true;
             textBoxYear.Text = "";
             textBoxYear.Enabled = true;
-            //dataGridViewA
+            dataGridViewA.Rows.Clear();
             dataGridViewA.Enabled = true;
-            //dataGridViewB
+            dataGridViewB.Rows.Clear();
             dataGridViewB.Enabled = true;
             buttonAdd.Enabled = false;
             buttonDel.Enabled = false;
@@ -91,29 +91,24 @@ namespace CassCat
             edit.publisher = textBoxPublisher.Text;
             edit.city = textBoxCity.Text;
             edit.year = textBoxYear.Text;
+            edit.sideA = new List<string>();
+            for (int i = 0; dataGridViewA[0, i].Value != null; i++)
+                edit.sideA.Add(dataGridViewA[0, i].Value.ToString());
+            edit.sideB = new List<string>();
+            for (int i = 0; dataGridViewB[0, i].Value != null; i++)
+                edit.sideB.Add(dataGridViewB[0, i].Value.ToString());
             if (itsNew) library.Add(edit);
             SaveData();
             Refresh();
-
-            listViewCassetes.Enabled = true;
-            textBoxLabel.Text = "";
-            textBoxLabel.Enabled = false;
-            textBoxPublisher.Text = "";
-            textBoxPublisher.Enabled = false;
-            textBoxCity.Text = "";
-            textBoxCity.Enabled = false;
-            textBoxYear.Text = "";
-            textBoxYear.Enabled = false;
-            //dataGridViewA
-            dataGridViewA.Enabled = false;
-            //dataGridViewB
-            dataGridViewB.Enabled = false;
-            buttonAdd.Enabled = true;
-            buttonSave.Enabled = false;
-            buttonCancel.Enabled = false;
+            Clear();
         }
 
         private void ButtonCancel_Click(object sender, EventArgs e)
+        {
+            Clear();
+        }
+
+        void Clear()
         {
             listViewCassetes.Enabled = true;
             textBoxLabel.Text = "";
@@ -124,13 +119,63 @@ namespace CassCat
             textBoxCity.Enabled = false;
             textBoxYear.Text = "";
             textBoxYear.Enabled = false;
-            //dataGridViewA
+            dataGridViewA.Rows.Clear();
             dataGridViewA.Enabled = false;
-            //dataGridViewB
+            dataGridViewB.Rows.Clear();
             dataGridViewB.Enabled = false;
             buttonAdd.Enabled = true;
+            buttonDel.Enabled = false;
             buttonSave.Enabled = false;
             buttonCancel.Enabled = false;
         }
+
+        private void ListViewCassetes_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (listViewCassetes.SelectedItems.Count == 0)
+            {
+                Clear();
+                return;
+            }
+            itsNew = false;
+            edit = (Cassete)listViewCassetes.SelectedItems[0].Tag;
+
+            listViewCassetes.Enabled = true;
+            textBoxLabel.Text = edit.name;
+            textBoxLabel.Enabled = true;
+            textBoxPublisher.Text = edit.publisher;
+            textBoxPublisher.Enabled = true;
+            textBoxCity.Text = edit.city;
+            textBoxCity.Enabled = true;
+            textBoxYear.Text = edit.year;
+            textBoxYear.Enabled = true;
+            dataGridViewA.Rows.Clear();
+            foreach(string pr in edit.sideA)
+                dataGridViewA.Rows.Add(pr);
+            dataGridViewA.Enabled = true;
+            dataGridViewB.Rows.Clear();
+            foreach (string pr in edit.sideB)
+                dataGridViewB.Rows.Add(pr);
+            dataGridViewB.Enabled = true;
+
+            buttonDel.Enabled = true;
+            buttonSave.Enabled = true;
+            buttonCancel.Enabled = true;
+        }
+        #region Меню
+        private void ВыходToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
+
+        private void ОПрограммеToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("CassCat\n" +
+                "Версия: 0.1 (03.11.2019)\n" +
+                "Автор: Сергей Гордеев",
+                "О программе",
+                MessageBoxButtons.OK,
+                MessageBoxIcon.Information);
+        }
+        #endregion
     }
 }
