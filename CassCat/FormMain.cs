@@ -45,15 +45,24 @@ namespace CassCat
         {
             string[] names = str.Split(',');
             int s = 0;
+            int voids = 0;
             foreach (string name in names)
             {
                 string nm = name;
-                while (nm.Length > 0 & name[0] == ' ') nm = nm.Substring(1, nm.Length - 1);
-                while (nm.Length > 0 & name[nm.Length-1] == ' ') nm = nm.Substring(0, nm.Length-1);
-
-                if (nm.Length < 1) break;
+                while (nm.Length > 0 && name[0] == ' ') nm = nm.Substring(1, nm.Length - 1);
+                while (nm.Length > 0 && name[nm.Length-1] == ' ') nm = nm.Substring(0, nm.Length-1);
+                if (nm.Length < 1) { voids++; break; }
+                bool find = false;
+                foreach (string game in cas.sideA) if (game.ToLower().Contains(nm.ToLower())) { find = true; break; }
+                foreach (string game in cas.sideB) if (game.ToLower().Contains(nm.ToLower())) { find = true; break; }
+                if (find)
+                    s++;
             }
-            return 0;
+            float res = 0;
+            if (voids < names.Count())
+                res = ((float)s / (names.Count() - voids)) * 100;
+            if (res > 100) res = 100;
+            return (int)res;
         }
 
         void Refresh()
@@ -69,10 +78,12 @@ namespace CassCat
                 {
                     ListViewItem item = new ListViewItem(n++.ToString());
                     item.SubItems.Add(cas.name);
+                    if (p<=100) item.SubItems.Add(p.ToString()+"%");
                     item.Tag = cas;
                     listViewCassetes.Items.Add(item);
                 }
             }
+            listViewCassetes.Sort();
             listViewCassetes.EndUpdate();
         }
 
