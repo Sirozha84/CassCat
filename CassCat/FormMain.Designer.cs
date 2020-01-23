@@ -59,7 +59,6 @@
             this.удалитьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.dataGridViewB = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewA)).BeginInit();
             this.contextMenuStrip1.SuspendLayout();
@@ -72,19 +71,20 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.textBoxSearch.Location = new System.Drawing.Point(12, 29);
             this.textBoxSearch.Name = "textBoxSearch";
-            this.textBoxSearch.Size = new System.Drawing.Size(565, 20);
+            this.textBoxSearch.Size = new System.Drawing.Size(549, 20);
             this.textBoxSearch.TabIndex = 0;
             this.textBoxSearch.TextChanged += new System.EventHandler(this.textBoxSearch_TextChanged);
             // 
             // buttonReset
             // 
             this.buttonReset.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonReset.Location = new System.Drawing.Point(583, 27);
+            this.buttonReset.Location = new System.Drawing.Point(567, 27);
             this.buttonReset.Name = "buttonReset";
             this.buttonReset.Size = new System.Drawing.Size(75, 23);
             this.buttonReset.TabIndex = 1;
             this.buttonReset.Text = "Сброс";
             this.buttonReset.UseVisualStyleBackColor = true;
+            this.buttonReset.Click += new System.EventHandler(this.buttonReset_Click);
             // 
             // menuStrip1
             // 
@@ -93,7 +93,7 @@
             this.справкаToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(670, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(654, 24);
             this.menuStrip1.TabIndex = 2;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -135,15 +135,14 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.listViewCassetes.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnHeader1,
-            this.columnHeader2,
-            this.columnHeader3});
+            this.columnHeader2});
             this.listViewCassetes.FullRowSelect = true;
             this.listViewCassetes.GridLines = true;
             this.listViewCassetes.HideSelection = false;
             this.listViewCassetes.Location = new System.Drawing.Point(12, 55);
             this.listViewCassetes.MultiSelect = false;
             this.listViewCassetes.Name = "listViewCassetes";
-            this.listViewCassetes.Size = new System.Drawing.Size(322, 368);
+            this.listViewCassetes.Size = new System.Drawing.Size(306, 410);
             this.listViewCassetes.TabIndex = 2;
             this.listViewCassetes.UseCompatibleStateImageBehavior = false;
             this.listViewCassetes.View = System.Windows.Forms.View.Details;
@@ -157,13 +156,13 @@
             // columnHeader2
             // 
             this.columnHeader2.Text = "Кассета";
-            this.columnHeader2.Width = 200;
+            this.columnHeader2.Width = 220;
             // 
             // label1
             // 
             this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(341, 59);
+            this.label1.Location = new System.Drawing.Point(325, 59);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(60, 13);
             this.label1.TabIndex = 4;
@@ -173,7 +172,7 @@
             // 
             this.textBoxLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.textBoxLabel.Enabled = false;
-            this.textBoxLabel.Location = new System.Drawing.Point(408, 56);
+            this.textBoxLabel.Location = new System.Drawing.Point(392, 56);
             this.textBoxLabel.Name = "textBoxLabel";
             this.textBoxLabel.Size = new System.Drawing.Size(250, 20);
             this.textBoxLabel.TabIndex = 3;
@@ -182,7 +181,7 @@
             // 
             this.textBoxPublisher.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.textBoxPublisher.Enabled = false;
-            this.textBoxPublisher.Location = new System.Drawing.Point(408, 82);
+            this.textBoxPublisher.Location = new System.Drawing.Point(392, 82);
             this.textBoxPublisher.Name = "textBoxPublisher";
             this.textBoxPublisher.Size = new System.Drawing.Size(250, 20);
             this.textBoxPublisher.TabIndex = 4;
@@ -191,7 +190,7 @@
             // 
             this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(342, 85);
+            this.label2.Location = new System.Drawing.Point(326, 85);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(59, 13);
             this.label2.TabIndex = 6;
@@ -201,7 +200,7 @@
             // 
             this.textBoxCity.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.textBoxCity.Enabled = false;
-            this.textBoxCity.Location = new System.Drawing.Point(408, 108);
+            this.textBoxCity.Location = new System.Drawing.Point(392, 108);
             this.textBoxCity.Name = "textBoxCity";
             this.textBoxCity.Size = new System.Drawing.Size(250, 20);
             this.textBoxCity.TabIndex = 5;
@@ -210,7 +209,7 @@
             // 
             this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(361, 111);
+            this.label3.Location = new System.Drawing.Point(345, 111);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(40, 13);
             this.label3.TabIndex = 8;
@@ -220,7 +219,7 @@
             // 
             this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(390, 167);
+            this.label4.Location = new System.Drawing.Point(374, 167);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(59, 13);
             this.label4.TabIndex = 10;
@@ -230,7 +229,7 @@
             // 
             this.label5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(550, 167);
+            this.label5.Location = new System.Drawing.Point(534, 167);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(59, 13);
             this.label5.TabIndex = 12;
@@ -239,7 +238,7 @@
             // buttonAdd
             // 
             this.buttonAdd.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonAdd.Location = new System.Drawing.Point(340, 400);
+            this.buttonAdd.Location = new System.Drawing.Point(324, 442);
             this.buttonAdd.Name = "buttonAdd";
             this.buttonAdd.Size = new System.Drawing.Size(75, 23);
             this.buttonAdd.TabIndex = 9;
@@ -251,7 +250,7 @@
             // 
             this.buttonDel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.buttonDel.Enabled = false;
-            this.buttonDel.Location = new System.Drawing.Point(421, 400);
+            this.buttonDel.Location = new System.Drawing.Point(405, 442);
             this.buttonDel.Name = "buttonDel";
             this.buttonDel.Size = new System.Drawing.Size(75, 23);
             this.buttonDel.TabIndex = 10;
@@ -263,7 +262,7 @@
             // 
             this.buttonSave.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.buttonSave.Enabled = false;
-            this.buttonSave.Location = new System.Drawing.Point(502, 400);
+            this.buttonSave.Location = new System.Drawing.Point(486, 442);
             this.buttonSave.Name = "buttonSave";
             this.buttonSave.Size = new System.Drawing.Size(75, 23);
             this.buttonSave.TabIndex = 11;
@@ -275,7 +274,7 @@
             // 
             this.buttonCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.buttonCancel.Enabled = false;
-            this.buttonCancel.Location = new System.Drawing.Point(583, 400);
+            this.buttonCancel.Location = new System.Drawing.Point(567, 442);
             this.buttonCancel.Name = "buttonCancel";
             this.buttonCancel.Size = new System.Drawing.Size(75, 23);
             this.buttonCancel.TabIndex = 12;
@@ -287,7 +286,7 @@
             // 
             this.textBoxYear.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.textBoxYear.Enabled = false;
-            this.textBoxYear.Location = new System.Drawing.Point(408, 134);
+            this.textBoxYear.Location = new System.Drawing.Point(392, 134);
             this.textBoxYear.Name = "textBoxYear";
             this.textBoxYear.Size = new System.Drawing.Size(88, 20);
             this.textBoxYear.TabIndex = 6;
@@ -296,7 +295,7 @@
             // 
             this.label6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(373, 137);
+            this.label6.Location = new System.Drawing.Point(357, 137);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(28, 13);
             this.label6.TabIndex = 19;
@@ -314,12 +313,12 @@
             this.Column1});
             this.dataGridViewA.ContextMenuStrip = this.contextMenuStrip1;
             this.dataGridViewA.Enabled = false;
-            this.dataGridViewA.Location = new System.Drawing.Point(340, 182);
+            this.dataGridViewA.Location = new System.Drawing.Point(324, 182);
             this.dataGridViewA.MultiSelect = false;
             this.dataGridViewA.Name = "dataGridViewA";
             this.dataGridViewA.RowHeadersVisible = false;
             this.dataGridViewA.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.dataGridViewA.Size = new System.Drawing.Size(156, 212);
+            this.dataGridViewA.Size = new System.Drawing.Size(156, 254);
             this.dataGridViewA.TabIndex = 7;
             // 
             // Column1
@@ -353,12 +352,12 @@
             this.dataGridViewTextBoxColumn1});
             this.dataGridViewB.ContextMenuStrip = this.contextMenuStrip1;
             this.dataGridViewB.Enabled = false;
-            this.dataGridViewB.Location = new System.Drawing.Point(502, 183);
+            this.dataGridViewB.Location = new System.Drawing.Point(486, 183);
             this.dataGridViewB.MultiSelect = false;
             this.dataGridViewB.Name = "dataGridViewB";
             this.dataGridViewB.RowHeadersVisible = false;
             this.dataGridViewB.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.dataGridViewB.Size = new System.Drawing.Size(156, 212);
+            this.dataGridViewB.Size = new System.Drawing.Size(156, 254);
             this.dataGridViewB.TabIndex = 8;
             // 
             // dataGridViewTextBoxColumn1
@@ -367,15 +366,11 @@
             this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
             this.dataGridViewTextBoxColumn1.Width = 156;
             // 
-            // columnHeader3
-            // 
-            this.columnHeader3.Text = "";
-            // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(670, 435);
+            this.ClientSize = new System.Drawing.Size(654, 477);
             this.Controls.Add(this.dataGridViewB);
             this.Controls.Add(this.dataGridViewA);
             this.Controls.Add(this.textBoxYear);
@@ -397,6 +392,7 @@
             this.Controls.Add(this.textBoxSearch);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
+            this.MinimumSize = new System.Drawing.Size(660, 330);
             this.Name = "FormMain";
             this.Text = "CassCat";
             this.menuStrip1.ResumeLayout(false);
@@ -441,7 +437,6 @@
         private System.Windows.Forms.DataGridView dataGridViewB;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
-        private System.Windows.Forms.ColumnHeader columnHeader3;
     }
 }
 

@@ -76,9 +76,12 @@ namespace CassCat
                 int p = textBoxSearch.Text == "" ? 101 : Find(cas, textBoxSearch.Text);
                 if (p > 0)
                 {
-                    ListViewItem item = new ListViewItem(n++.ToString());
+                    ListViewItem item;
+                    if (p > 100)
+                        item = new ListViewItem(n++.ToString());
+                    else
+                        item = new ListViewItem(p.ToString() + "%");
                     item.SubItems.Add(cas.name);
-                    if (p<=100) item.SubItems.Add(p.ToString()+"%");
                     item.Tag = cas;
                     listViewCassetes.Items.Add(item);
                 }
@@ -195,6 +198,10 @@ namespace CassCat
         {
             Refresh();
         }
+        private void buttonReset_Click(object sender, EventArgs e)
+        {
+            textBoxSearch.Text = "";
+        }
 
         #region Меню
         private void ВыходToolStripMenuItem_Click(object sender, EventArgs e)
@@ -205,12 +212,13 @@ namespace CassCat
         private void ОПрограммеToolStripMenuItem_Click(object sender, EventArgs e)
         {
             MessageBox.Show("CassCat\n" +
-                "Версия: 0.1 (03.11.2019)\n" +
-                "Автор: Сергей Гордеев",
+                "Версия: " + Program.Version +
+                "\nАвтор: Сергей Гордеев",
                 "О программе",
                 MessageBoxButtons.OK,
                 MessageBoxIcon.Information);
         }
         #endregion
+
     }
 }
